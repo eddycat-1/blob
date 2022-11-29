@@ -13,6 +13,7 @@ body {
   filter: hue-rotate(0deg);
   animation: huerot 5s ease infinite;
 }
+
 /** for goo container **/
 @function randomNum($min, $max) {
   $rand: random();
@@ -24,6 +25,7 @@ $color: #fff;
 $color2: #5048a0;
 $color3: #85ede8;
 $color4: #48098b;
+
 .glowy-blob {
   position: absolute;
   left: 50%;
@@ -41,9 +43,9 @@ $color4: #48098b;
     $top-collection: 0;
     $left-collection: 0;
     @for $i from 2 to 17 {
-      $left: randomNum(-60px, -60px);
-      $top: randomNum(-60px, 60px);
-      $randWH: randomNum(30px, -60px);
+      $left: randomNum(-30px, 30px);
+      $top: randomNum(-30px, 30px);
+      $randWH: randomNum(30px, 60px);
       &:nth-child(#{$i}) {
         width: $randWH;
         height: $randWH;
@@ -65,14 +67,15 @@ $color4: #48098b;
           animation-delay: randomNum(1s, 3s);
         }
       }
+
       @keyframes anim-#{$i} {
         0% {
           left: 0;
           top: 0;
         }
         50% {
-          left: ($left-collection, $i + 1);
-          top: ($top-collection, $i);
+          left: nth($left-collection, $i);
+          top: nth($top-collection, $i);
         }
         100% {
           left: 0;
@@ -80,8 +83,23 @@ $color4: #48098b;
         }
       }
     }
+
     &:hover {
       cursor: default;
     }
+  }
+}
+
+@keyframes huerot {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg);
   }
 }
