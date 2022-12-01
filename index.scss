@@ -31,7 +31,7 @@ $color4: #48098b;
   left: 50%;
   top: 50%;
   transform: translate(-50, -50);
-  //   @include filter(url("@goo"));
+  filter: url("#goo");
   div {
     width: 80px;
     height: 80px;
@@ -43,8 +43,8 @@ $color4: #48098b;
     $top-collection: 0;
     $left-collection: 0;
     @for $i from 2 to 17 {
-      $left: randomNum(-30px, 30px);
-      $top: randomNum(-30px, 30px);
+      $left: randomNum(-60px, 60px);
+      $top: randomNum(-60px, 60px);
       $randWH: randomNum(30px, 60px);
       &:nth-child(#{$i}) {
         width: $randWH;
