@@ -74,7 +74,7 @@ $color4: #48098b;
           top: 0;
         }
         50% {
-          left: nth($left-collection, $i);
+          left: nth($left-collection, $i + 1);
           top: nth($top-collection, $i);
         }
         100% {
